@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local Instagram credentials/session and resume state
+config.json
+session.json
+etat.json
+etat.tmp
+etat.*.tmp

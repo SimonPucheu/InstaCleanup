@@ -1,0 +1,24 @@
+NETTOYAGE INSTAGRAM
+
+Supprime (désenvoie) uniquement TES messages dans le groupe configuré. Ceux des autres ne sont jamais touchés.
+Pas d'IA, pas de clé API : seulement ton identifiant et ton mot de passe Instagram, demandés au lancement
+(le mot de passe n'est enregistré nulle part ; seule la session est gardée dans session.json).
+
+1. Il faut Python 3 (python.org). Sur Linux, installe aussi le paquet venv
+   (par exemple : sudo apt install python3 python3-venv).
+2. Copie config.example.json vers config.json et renseigne group_id et group_name
+   avec l'identifiant et le nom exact du groupe.
+3. Mac : double-clic sur LANCER-mac.command
+   (si bloqué : clic droit > Ouvrir, ou dans le Terminal : bash LANCER-mac.command)
+   Windows : double-clic sur LANCER-windows.bat
+   Linux : ./run-linux.sh
+4. Tape ton identifiant, ton mot de passe (et le code 2FA si tu en as un).
+5. Laisse tourner. ~2 s par message, pauses régulières : compter ~1 h pour 1 000 messages.
+
+- Ctrl+C pour arrêter : relance plus tard, ça reprend où c'était.
+- Si Instagram demande une vérification ou de ralentir, le script s'arrête tout seul :
+  valide sur ton téléphone, attends quelques heures, relance.
+- Les messages système (appels, « X a ajouté Y ») ne peuvent pas être supprimés : ils sont sautés.
+- Ne partage pas session.json (c'est ta connexion Instagram).
+- config.json contient la configuration locale du groupe et est exclu de Git.
+- API non officielle : aucun risque zéro de restriction du compte, même si le rythme est calme.
