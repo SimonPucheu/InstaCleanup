@@ -10,7 +10,8 @@ import getpass, json, os, random, sys, tempfile, time
 from pathlib import Path
 
 from instagrapi import Client
-from instagrapi.exceptions import (ChallengeRequired, ClientError, LoginRequired,
+from instagrapi.exceptions import (ChallengeRequired, ClientError,
+                                   ClientThrottledError, LoginRequired,
                                    PleaseWaitFewMinutes, RateLimitError,
                                    TwoFactorRequired)
 
@@ -161,6 +162,8 @@ if __name__ == '__main__':
         main()
     except KeyboardInterrupt:
         print('\n⏸ Arrêté. Relance plus tard : ça reprendra où ça en était.')
-    except (ChallengeRequired, PleaseWaitFewMinutes, RateLimitError) as e:
+    except (ChallengeRequired, ClientThrottledError, PleaseWaitFewMinutes,
+            RateLimitError) as e:
         print(f'\n⚠️ Instagram demande de ralentir ou une vérification ({type(e).__name__}).')
-        print('Ouvre Instagram sur ton téléphone, valide si besoin, attends quelques heures puis relance.')
+        print('Arrête les tentatives. Vérifie ton compte dans l’application Instagram officielle, '
+              'puis attends avant de réessayer.')

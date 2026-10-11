@@ -47,6 +47,10 @@ If you stop the script with Ctrl+C, run it again to resume from its saved
 progress. The script also stops when Instagram requires a check or asks you to
 slow down.
 
+If login returns HTTP 429, Instagram is rate-limiting the account or request.
+Do not keep retrying or try to bypass the limit. Check the account in the
+official Instagram app and wait before attempting another login.
+
 ## Important
 
 This project uses an unofficial Instagram client. Instagram may change its
